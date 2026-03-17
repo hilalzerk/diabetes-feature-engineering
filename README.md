@@ -1,33 +1,34 @@
 # 🩺 Diabetes Feature Engineering & ML Project
 
-## 📌 İş Problemi
-Özellikleri belirtildiğinde kişilerin diyabet hastası olup olmadıklarını tahmin edebilecek bir makine öğrenmesi modeli geliştirilmesi istenmektedir.
+## 📌 Business Problem
+The goal is to develop a machine learning model that can predict whether a person has diabetes based on given features.
 
-## 📊 Veri Seti
-- **Kaynak:** ABD Ulusal Diyabet-Sindirim-Böbrek Hastalıkları Enstitüleri
-- **Gözlem:** 768 | **Değişken:** 9
-- **Hedef:** Outcome (1: Diyabet, 0: Sağlıklı)
+## 📊 Dataset
+- **Source:** National Institute of Diabetes and Digestive and Kidney Diseases, USA
+- **Observations:** 768 | **Variables:** 9
+- **Target:** Outcome (1: Diabetes, 0: Healthy)
 
-## 🔧 Proje Adımları
-### Görev 1 — Keşifçi Veri Analizi (EDA)
-- Genel resim inceleme
-- Kategorik & numerik değişken analizi
-- Hedef değişken analizi
-- Aykırı değer analizi
-- Eksik değer analizi (gizli 0 değerleri)
-- Korelasyon analizi
+## 🔧 Project Steps
 
-### Görev 2 — Feature Engineering
-- 0 değerlerini NaN'a çevirme
-- Outcome grubuna göre medyan doldurma
-- Aykırı değer baskılama (IQR)
-- 15+ yeni değişken türetme
+### Task 1 — Exploratory Data Analysis (EDA)
+- General overview
+- Categorical & numeric variable analysis
+- Target variable analysis
+- Outlier analysis
+- Missing value analysis (hidden 0 values)
+- Correlation analysis
+
+### Task 2 — Feature Engineering
+- Replacing 0 values with NaN
+- Filling missing values by Outcome group median
+- Outlier suppression (IQR)
+- Deriving 15+ new variables
 - Label & One-Hot Encoding
-- RobustScaler ile standartlaştırma
+- Standardization with RobustScaler
 
-## 📈 Model Sonuçları
+## 📈 Model Results
 
-| Metrik    | Random Forest | XGBoost |
+| Metric    | Random Forest | XGBoost |
 |-----------|:------------:|:-------:|
 | Accuracy  | **0.900**    | 0.887   |
 | Recall    | **0.892**    | 0.802   |
@@ -35,26 +36,48 @@
 | F1        | **0.850**    | 0.833   |
 | AUC       | **0.900**    | 0.868   |
 
-## 🚀 Başlangıçtan Sona İyileşme
+## 🚀 Improvement from Start to Finish
 
-| Aşama | Accuracy |
-|-------|----------|
-| Ham veri | ~%74 |
-| İlk Feature Engineering | %78 |
-| Outcome grubuna göre doldurma + RobustScaler | **%90** |
+| Stage | Changes | Accuracy |
+|-------|---------|----------|
+| Raw data (no processing) | No feature engineering, no scaling | ~74% |
+| Initial Feature Engineering | StandardScaler + basic new variables | 78% |
+| + New Variables | Added interaction & log features | 78% |
+| + Outcome-based filling + RobustScaler | Filled missing values by Outcome group median, switched to RobustScaler | **90%** |
 
-## 🛠️ Kullanılan Teknolojiler
+## 🔑 Key Insight
+The most critical improvement came from a single change in the **missing value filling strategy**:
+
+| Method | Description | Impact |
+|--------|-------------|--------|
+| ❌ Global Median | Same median for everyone | Baseline |
+| ✅ Outcome-based Median | Separate median for diabetic vs healthy group | **+12% accuracy** |
+
+> Diabetic patients have significantly different insulin and glucose values than healthy individuals.
+> Filling missing values **within each group** provides the model with much more realistic data.
+
+## 🛠️ Technologies Used
 - Python, Pandas, NumPy
 - Scikit-learn, XGBoost
 - Matplotlib, Seaborn
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 ```
 diabetes-feature-engineering/
-├── diabets.py        # Ana proje kodu
-├── README.md         # Proje açıklaması
+├── diabets.py          # Main project code
+├── diabetes.csv        # Dataset
+├── README.md           # Project description
+├── Plots/              # Output plots
+│   ├── correlation_matrix_before_fe.png
+│   ├── correlation_matrix_after_fe.png
+│   ├── feature_importance_rf.png
+│   ├── feature_importance_xgb.png
+│   ├── confusion_matrix_rf.png
+│   ├── confusion_matrix_xgb.png
+│   ├── model_comparison_rf_vs_xgb.png
+│   └── target_vs_*.png
 └── .gitignore
 ```
 
-## 👩‍💻 Yazar
-Hilal Zerk Demirkan — Miuul Veri Bilimi & Yapay Zeka Bootcamp
+## 👩‍💻 Author
+Hilal Zerk Demirkan — Miuul Data Science & AI Bootcamp
