@@ -3,6 +3,5 @@ __pycache__/
 .env
 venv/
 .idea/
-*.csv
 .DS_Store
 Grafikler/
