@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.env
+venv/
+.idea/
+*.csv
+.DS_Store
+Grafikler/
