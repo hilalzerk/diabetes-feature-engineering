@@ -1,7 +1,6 @@
 #############################################
-# Miuul Bootcamp-DİYABET - FEATURE ENGINEERING PROJESİ
+# -DİYABET - FEATURE ENGINEERING PROJESİ
 #############################################
-
 
 # İş Problemi
 
@@ -9,7 +8,6 @@
 # edebilecek bir makine öğrenmesi modeli geliştirilmesi istenmektedir. Modeli
 # geliştirmeden önce gerekli olan veri analizi ve özellik mühendisliği adımlarını
 # gerçekleştirmeniz beklenmektedir.
-
 
 # Veriseti ABD'deki Ulusal Diyabet-Sindirim-Böbrek Hastalıkları Enstitüleri'nde tutulan büyük veri setinin parçasıdır.
 # ABD'deki Arizona Eyaleti'nin enbüyük 5.şehri olan Phoenix şehrinde yaşayan 21 yaş ve üzerinde olan Pima Indian kadınları üzerinde
@@ -52,6 +50,7 @@
 # Adım 3: Encoding işlemlerini gerçekleştiriniz.
 # Adım 4: Numerik değişkenler için standartlaştırma yapınız.
 # Adım 5: Model oluşturunuz.
+# =============================================================================
 
 # Gerekli kütüphane ve görsel ayarlar
 import numpy as np
@@ -642,7 +641,3 @@ for bar in bars2:
 plt.tight_layout()
 plt.savefig("model_comparison.png", dpi=150)
 plt.show()
-
-
-
-
