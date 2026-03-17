@@ -1,7 +1,6 @@
 #############################################
-# Miuul Bootcamp - DIABETES FEATURE ENGINEERING PROJECT
+# DIABETES FEATURE ENGINEERING PROJECT
 #############################################
-
 
 # Business Problem
 
@@ -9,7 +8,6 @@
 # whether a person has diabetes based on given features.
 # Before building the model, the required data analysis and
 # feature engineering steps must be completed.
-
 
 # The dataset is part of a large database maintained by the
 # National Institute of Diabetes and Digestive and Kidney Diseases in the USA.
@@ -712,4 +710,4 @@ plt.savefig(f"{SAVE_DIR}/model_comparison_rf_vs_xgb.png", dpi=150)
 plt.close()
 print("✓ model_comparison_rf_vs_xgb.png saved")
 
-print(f"\n✅ All plots saved to: {SAVE_DIR}")
+print(f"\n All plots saved to: {SAVE_DIR}")
